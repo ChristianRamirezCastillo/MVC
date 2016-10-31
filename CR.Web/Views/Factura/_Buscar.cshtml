@@ -1,0 +1,60 @@
+﻿@model IEnumerable<CR.Web.Funcionalidades.Factura.Parametros.FacturaViewModel>
+<div class="container">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RUC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RazonSocial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Glosa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaVencimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IGV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.RUC)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.RazonSocial)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Fecha)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Glosa)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.FechaVencimiento)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.SubTotal)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.IGV)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Total)
+                </td>
+            </tr>
+        }
+    </table>
+</div>

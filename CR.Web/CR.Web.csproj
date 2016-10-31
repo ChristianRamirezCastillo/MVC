@@ -148,6 +148,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Funcionalidades\Factura\BuscarFactura.cs" />
     <Compile Include="Funcionalidades\Factura\ListarFactura.cs" />
     <Compile Include="Funcionalidades\Factura\Parametros\FacturaViewModel.cs" />
     <Compile Include="Funcionalidades\Factura\Parametros\FacturaViewModelValidator.cs" />
@@ -171,6 +172,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -207,6 +210,7 @@
     <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Factura\Lista.cshtml" />
     <Content Include="Views\Factura\Registrar.cshtml" />
+    <Content Include="Views\Factura\_Buscar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CR.Web.Models.FacturaModels>
+﻿@model CR.Web.Funcionalidades.Factura.BuscarFactura
 @{
     ViewBag.Title = "Lista";
 }
@@ -7,73 +7,35 @@
 <p>
     @Html.ActionLink("Registrar Nuevo", "Registrar")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RUC)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RazonSocial)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaVencimiento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fecha)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Glosa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SubTotal)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IGV)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Total)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RUC)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RazonSocial)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaVencimiento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fecha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Glosa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SubTotal)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IGV)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Total)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Editar", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Detalle", "Detalle", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Eliminar", "Eliminar", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
+@using (Ajax.BeginForm("Buscar", "Facturas", new AjaxOptions
+{
+    HttpMethod = "Get",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "Resultado"
+}, new
+{
+    id = "FiltrarFacturas",
+    @class = "form-inline"
+}))
+{
+    <div class="form-group col-sm-10">
+        <input name="Filtro" value="@Model.Filtro" 
+               type="text" class="form-control" placeholder="Buscar Factura" />
+    </div>
+    <input type="submit" value="Filtrar..." class="btn btn-success" />
 }
 
-</table>
+<div>
+    @if (Model.oIEnumFacturaViewModel.Count() > 0)
+    {
+        @Html.Partial("_Buscar", Model.oIEnumFacturaViewModel);
+    }
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/unobtrusiveajax");
+}
+
+
+

@@ -20,7 +20,7 @@ namespace CR.Web.Funcionalidades.Factura.Parametros
                 .WithMessage("Minimo 4 caracteres");
 
             RuleFor(mod => mod.FechaVencimiento)
-                .Empty()
+                .NotEmpty()
                 .WithMessage("La fecha debe ser minimo a 30 dias de la emision");
 
             RuleFor(mod => mod.Fecha)
