@@ -10,16 +10,22 @@ namespace CR.Web.Controllers
 {
     public class FacturaController : Controller
     {
-
+        /*
+         * Al crear la lista parcial, se programa
+         * para que realize desde una vista parcial y liste 
+         * las facturas
+        */
         public ActionResult Lista()
         {
             using (var oListarFactura = new ListarFactura())
             {
-                var result = oListarFactura.Ejecutar();
+                var result = oListarFactura.Ejecutar("");
                 return View(result);
             }
         }
-        
+
+
+        #region Registrar Factura
         [HttpGet]
         public ActionResult Registrar()
         {
@@ -43,5 +49,18 @@ namespace CR.Web.Controllers
                 }
             }
         }
+        #endregion
+
+
+        #region Vistar Parciales
+        public PartialViewResult Buscar(string sFiltro)
+        {
+            using (var oListarFactura = new ListarFactura())
+            {
+                var result = PartialView("_Buscar", oListarFactura.Ejecutar(sFiltro));
+                return PartialView(result);
+            }
+        }
+        #endregion
     }
 }

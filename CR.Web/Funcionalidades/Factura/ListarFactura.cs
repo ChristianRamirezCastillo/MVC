@@ -17,10 +17,16 @@ namespace CR.Web.Funcionalidades.Factura
             oFacturaRepositorio = new FacturaRepositorio(new FacturaContexto());
         }
 
-        public IEnumerable<FacturaModels> Ejecutar()
+        public IEnumerable<FacturaModels> Ejecutar(string sfiltro)
         {
-            var result = oFacturaRepositorio.Facturas.TrerTodos().Select(
-                    e => new FacturaModels()
+            var consulta = oFacturaRepositorio.Facturas.TrerTodos();
+
+            if (!string.IsNullOrEmpty(sfiltro))
+            {
+
+            }
+
+            return consulta.Select(e => new FacturaModels()
                     {
                         Codigo = e.Codigo,
                         RUC = e.RUC,
@@ -31,11 +37,9 @@ namespace CR.Web.Funcionalidades.Factura
                         SubTotal = e.SubTotal,
                         IGV = e.IGV,
                         Total = e.Total
-                    }
-                ).ToList();
-
-            return result;
+                    }).ToList();
         }
+
 
         public void Dispose()
         {
