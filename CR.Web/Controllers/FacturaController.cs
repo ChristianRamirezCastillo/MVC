@@ -19,8 +19,15 @@ namespace CR.Web.Controllers
                 return View(result);
             }
         }
+        
+        [HttpGet]
+        public ActionResult Registrar()
+        {
+            return View(new FacturaViewModel());
+        }
 
-        public ActionResult Crear(FacturaViewModel oFacturaViewModel)
+        [HttpPost]
+        public ActionResult Registrar(FacturaViewModel oFacturaViewModel)
         {
             if (!ModelState.IsValid) return View(oFacturaViewModel);
             using (var oRegistrarFactura = new RegistrarFactura())
@@ -34,9 +41,6 @@ namespace CR.Web.Controllers
                 {
                     return View(oFacturaViewModel);
                 }
-                        
-                
-
             }
         }
     }
