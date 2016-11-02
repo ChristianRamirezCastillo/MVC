@@ -7,7 +7,7 @@
 <p>
     @Html.ActionLink("Registrar Nuevo", "Registrar")
 </p>
-@using (Ajax.BeginForm("BuscarPorNombre", "Facturas", new AjaxOptions
+@using (Ajax.BeginForm("BuscarPorNombre", "Factura", new AjaxOptions
 {
     HttpMethod = "Get",
     InsertionMode = InsertionMode.Replace,
@@ -30,6 +30,13 @@
     {
         @Html.Partial("_Buscar", Model.Facturas);
     }
+</div>
+<div id="VerFactura"
+     class="modal fade"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="VerFacturalabel"
+     aria-hidden="true">
 </div>
 
 

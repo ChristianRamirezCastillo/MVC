@@ -19,8 +19,13 @@ namespace CR.Web.Controllers
         {
             using (var oListarFactura = new ListarFactura())
             {
-                var result = oListarFactura.Ejecutar(Filtro);
-                return View(result);
+                var oBuscarFactura = new BuscarFactura()
+                {
+                    Filtro = string.Empty,
+                    Facturas = oListarFactura.Ejecutar(Filtro)
+                };
+                
+                return View(oBuscarFactura);
             }
         }
 
@@ -53,13 +58,21 @@ namespace CR.Web.Controllers
 
 
         #region Vistar Parciales
-        public PartialViewResult BuscarPorNombre(string sFiltro)
+        public PartialViewResult BuscarPorNombre(string Filtro)
         {
             using (var oListarFactura = new ListarFactura())
             {
-                var result = PartialView("_Buscar", 
-                    oListarFactura.Ejecutar(sFiltro));
-                return PartialView(result);
+                var result = oListarFactura.Ejecutar(Filtro);
+                return PartialView("_Buscar", result);
+            }
+        }
+
+        public PartialViewResult Ver(int id)
+        {
+            using (var oVerFactura = new VerFactura())
+            {
+                var result = oVerFactura.Ejecutar(id);
+                return PartialView("_Ver", result);
             }
         }
         #endregion

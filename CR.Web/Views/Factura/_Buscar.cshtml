@@ -65,7 +65,24 @@
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+
+                    @Ajax.ActionLink("Ver", "Ver", "Factura",
+                       new
+                       {
+                           id = item.Codigo
+                       },
+                       new AjaxOptions
+                       {
+                           HttpMethod = "Get",
+                           InsertionMode = InsertionMode.Replace,
+                           UpdateTargetId = "VerFactura"
+                       },
+                       new
+                       {
+                           data_toggle = "modal",
+                           data_target = "#VerFactura"
+                       }) |
+
                     @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
                 </td>
             </tr>

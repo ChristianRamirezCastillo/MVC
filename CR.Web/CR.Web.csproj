@@ -152,6 +152,7 @@
     <Compile Include="Funcionalidades\Factura\ListarFactura.cs" />
     <Compile Include="Funcionalidades\Factura\Parametros\FacturaViewModel.cs" />
     <Compile Include="Funcionalidades\Factura\Parametros\FacturaViewModelValidator.cs" />
+    <Compile Include="Funcionalidades\Factura\VerFactura.cs" />
     <Compile Include="Funcionalidades\Factura\RegistrarFactura.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -211,6 +212,7 @@
     <Content Include="Views\Factura\Lista.cshtml" />
     <Content Include="Views\Factura\Registrar.cshtml" />
     <Content Include="Views\Factura\_Buscar.cshtml" />
+    <Content Include="Views\Factura\_Ver.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

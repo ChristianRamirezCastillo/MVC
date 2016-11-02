@@ -17,13 +17,15 @@ namespace CR.Web.Funcionalidades.Factura
             oFacturaRepositorio = new FacturaRepositorio(new FacturaContexto());
         }
 
-        public IEnumerable<FacturaModels> Ejecutar(string sfiltro)
+        public IEnumerable<FacturaModels> Ejecutar(string Filtro)
         {
             var consulta = oFacturaRepositorio.Facturas.TrerTodos();
 
-            if (!string.IsNullOrEmpty(sfiltro))
+            if (!string.IsNullOrEmpty(Filtro))
             {
-
+                consulta = consulta.Where(
+                    x => x.RazonSocial.Contains(Filtro) 
+                );
             }
 
             return consulta.Select(e => new FacturaModels()
@@ -39,7 +41,6 @@ namespace CR.Web.Funcionalidades.Factura
                         Total = e.Total
                     }).ToList();
         }
-
 
         public void Dispose()
         {

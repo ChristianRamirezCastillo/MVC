@@ -1,0 +1,97 @@
+﻿@model CR.Web.Models.FacturaModels
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-hidden="true">
+                &times;
+            </button>
+            <h4>@Model.RazonSocial</h4>
+        </div>
+        <div class="modal-body">
+            <h4>FacturaModels</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Codigo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Codigo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.RUC)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.RUC)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.RazonSocial)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.RazonSocial)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FechaVencimiento)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FechaVencimiento)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Fecha)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Fecha)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Glosa)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Glosa)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SubTotal)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SubTotal)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IGV)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IGV)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Total)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Total)
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+</div>
+
+
+
+
