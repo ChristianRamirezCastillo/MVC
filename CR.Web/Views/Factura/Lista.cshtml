@@ -7,11 +7,11 @@
 <p>
     @Html.ActionLink("Registrar Nuevo", "Registrar")
 </p>
-@using (Ajax.BeginForm("Buscar", "Facturas", new AjaxOptions
+@using (Ajax.BeginForm("BuscarPorNombre", "Facturas", new AjaxOptions
 {
     HttpMethod = "Get",
     InsertionMode = InsertionMode.Replace,
-    UpdateTargetId = "Resultado"
+    UpdateTargetId = "ResultadoFiltro"
 }, new
 {
     id = "FiltrarFacturas",
@@ -25,10 +25,10 @@
     <input type="submit" value="Filtrar..." class="btn btn-success" />
 }
 
-<div>
-    @if (Model.oIEnumFacturaViewModel.Count() > 0)
+<div id="ResultadoFiltro">
+    @if (Model.Facturas.Count() > 0)
     {
-        @Html.Partial("_Buscar", Model.oIEnumFacturaViewModel);
+        @Html.Partial("_Buscar", Model.Facturas);
     }
 </div>
 

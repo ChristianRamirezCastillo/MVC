@@ -1,4 +1,5 @@
 ﻿using CR.Web.Funcionalidades.Factura.Parametros;
+using CR.Web.Models;
 using System.Collections.Generic;
 
 namespace CR.Web.Funcionalidades.Factura
@@ -6,11 +7,11 @@ namespace CR.Web.Funcionalidades.Factura
     public class BuscarFactura
     {
         public string Filtro { get; set; }
-        public IEnumerable<FacturaViewModel> oIEnumFacturaViewModel { get; set; }
+        public IEnumerable<FacturaModels> Facturas { get; set; }
 
         public BuscarFactura()
         {
-            oIEnumFacturaViewModel = new List<FacturaViewModel>();
+            Facturas = new List<FacturaModels>();
         }
     }
 }

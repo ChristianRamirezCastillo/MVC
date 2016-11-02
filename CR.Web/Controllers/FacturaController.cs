@@ -15,11 +15,11 @@ namespace CR.Web.Controllers
          * para que realize desde una vista parcial y liste 
          * las facturas
         */
-        public ActionResult Lista()
+        public ActionResult Lista(string Filtro)
         {
             using (var oListarFactura = new ListarFactura())
             {
-                var result = oListarFactura.Ejecutar("");
+                var result = oListarFactura.Ejecutar(Filtro);
                 return View(result);
             }
         }
@@ -53,11 +53,12 @@ namespace CR.Web.Controllers
 
 
         #region Vistar Parciales
-        public PartialViewResult Buscar(string sFiltro)
+        public PartialViewResult BuscarPorNombre(string sFiltro)
         {
             using (var oListarFactura = new ListarFactura())
             {
-                var result = PartialView("_Buscar", oListarFactura.Ejecutar(sFiltro));
+                var result = PartialView("_Buscar", 
+                    oListarFactura.Ejecutar(sFiltro));
                 return PartialView(result);
             }
         }
